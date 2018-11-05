@@ -24,7 +24,7 @@ class AuthManager extends SessionGuard
     /**
      * @var string Key to store the auth session data in
      */
-    protected $sessionKey = 'user_auth';
+    protected $sessionKey = 'october_auth';
 
     /**
      * @var string User Model Class
