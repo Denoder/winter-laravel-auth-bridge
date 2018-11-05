@@ -68,7 +68,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/auth.php' => config_path('auth.php'),
+                dirname(__DIR__).'/../config/auth.php' => config_path('auth.php'),
             ], 'october-bridge-config');
         }
     }
