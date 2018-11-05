@@ -1,0 +1,23 @@
+{
+    "name": "october/bridge",
+    "description": "October Core Extending Laravel Auth",
+    "keywords": ["october", "cms", "laravel", "auth"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian E. McQuilkin",
+            "email": "chris.e.mcquilkin@gmail.com"
+        },
+    ],
+    "autoload": {
+        "psr-4": {
+            "October\\Bridge\\": "src/"
+        }
+    },
+     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },   
+    "minimum-stability": "dev"
+}
