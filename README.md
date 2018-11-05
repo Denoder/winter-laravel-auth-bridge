@@ -44,7 +44,6 @@ Illuminate\Auth\AuthServiceProvider::class,
 October\Bridge\Auth\AuthServiceProvider::class,
 ```
 
-and in aliases (you can also add the `Gate` alias if you want):
-```
-'Auth' => \Illuminate\Support\Facades\Auth::class,
-```
+(you can also add the `Gate` alias if you want)
+
+After that the package should essentially act as a layer over Laravel's auth while retaining october's functions.
