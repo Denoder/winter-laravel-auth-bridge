@@ -1,5 +1,5 @@
 {
-    "name": "october/bridge",
+    "name": "october-bridge/bridge",
     "description": "October Core Extending Laravel Auth",
     "keywords": ["october", "cms", "laravel", "auth"],
     "license": "MIT",
