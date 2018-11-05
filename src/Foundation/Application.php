@@ -1,4 +1,4 @@
-<?php namespace Batotwo\User\Foundation;
+<?php namespace October\Bridge\Foundation;
 
 use October\Rain\Events\EventServiceProvider;
 use October\Rain\Router\RoutingServiceProvider;
