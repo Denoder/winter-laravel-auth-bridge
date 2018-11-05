@@ -60,7 +60,7 @@ class AuthServiceProvider extends ServiceProvider
     }
     
     /**
-     * Setup the resource publishing groups for Passport.
+     * Setup the resource publishing groups for Auth.
      *
      * @return void
      */
