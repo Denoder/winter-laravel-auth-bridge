@@ -15,7 +15,25 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        $this->extendAuthSession();
+    }
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->offerPublishing();
+    }
+    
+    /**
+     * Extend the authenticator service.
+     *
+     * @return void
+     */    
+    protected function extendAuthSession()
+    {
         $this->app['auth']->extend('session.extended', function($app, $name, array $config)
         {
             $provider = $this->app['auth']->createUserProvider($config['provider']);
@@ -38,6 +56,20 @@ class AuthServiceProvider extends ServiceProvider
             }
 
             return $guard;
-        });  
-    }  
+        });         
+    }
+    
+    /**
+     * Setup the resource publishing groups for Passport.
+     *
+     * @return void
+     */
+    protected function offerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/auth.php' => config_path('auth.php'),
+            ], 'october-bridge-config');
+        }
+    }
 }
