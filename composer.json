@@ -7,7 +7,7 @@
         {
             "name": "Christian E. McQuilkin",
             "email": "chris.e.mcquilkin@gmail.com"
-        },
+        }
     ],
     "autoload": {
         "psr-4": {
