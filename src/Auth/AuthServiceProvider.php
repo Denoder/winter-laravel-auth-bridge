@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->extendAuthSession();
     }
+    
     /**
      * Register the service provider.
      *
