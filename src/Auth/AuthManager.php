@@ -8,8 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 class AuthManager extends SessionGuard
 {
-
-    protected static $instance;
+    use \October\Rain\Support\Traits\Singleton;
 
     /**
      * @var Models\User The currently logged in user
@@ -61,19 +60,21 @@ class AuthManager extends SessionGuard
      */
     protected $viaRemember = false;
     
-    public function __construct($name, $provider, $session)
+    public function __construct($name = NULL, $provider = NULL, $session = NULL)
     {
-        $this->ipAddress = Request::ip();
-        parent::__construct($name, $provider, $session);
+        // Do not initialize the parent construct unless a construct parameter is given
+        // makes use of the Singleton Trait
+        if($session || $provider || $session) {
+            parent::__construct($name, $provider, $session);
+        }
     }
 
     /**
-     * Create a new instance of this singleton.
+     * Initializes the singleton
      */
-    final public static function instance()
+    protected function init()
     {
-        $reflector = new \ReflectionClass(__CLASS__);
-        return $reflector->newInstanceWithoutConstructor();
+        $this->ipAddress = Request::ip();        
     }
 
     //
