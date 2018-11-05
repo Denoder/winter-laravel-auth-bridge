@@ -2,8 +2,8 @@
 
 namespace October\Bridge\Auth;
 
+use October\Bridge\Auth\AuthManager;
 use October\Rain\Support\ServiceProvider;
-use October\Bridge\Classes\AuthManager;
 
 class AuthServiceProvider extends ServiceProvider
 {
