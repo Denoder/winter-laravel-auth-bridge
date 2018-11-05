@@ -3,13 +3,30 @@
 use Cookie;
 use Session;
 use Request;
-use Illuminate\Auth\SessionGuard;
+use October\Rain\Auth\AuthException;
+use Illuminate\Contracts\Session\Session as SessionContract;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-class AuthManager extends SessionGuard
+class AuthManager implements StatefulGuard
 {
-    use \October\Rain\Support\Traits\Singleton;
+    /**
+     * The name of the Guard.
+     *
+     * Corresponds to guard name in authentication configuration.
+     *
+     * @var string
+     */
+    protected $name;
 
+    /**
+     * The session used by the guard.
+     *
+     * @var \Illuminate\Contracts\Session\Session
+     */
+    protected $session;
+    
     /**
      * @var Models\User The currently logged in user
      */
@@ -44,7 +61,12 @@ class AuthManager extends SessionGuard
      * @var bool Flag to enable login throttling
      */
     protected $useThrottle = true;
-
+    
+    /**
+     * @var bool Flag to use Sessions
+     */    
+    protected $useSession = true;
+    
     /**
      * @var bool Flag to require users to be activated to login
      */
@@ -60,21 +82,12 @@ class AuthManager extends SessionGuard
      */
     protected $viaRemember = false;
     
-    public function __construct($name = NULL, $provider = NULL, $session = NULL)
+    public function __construct($name, UserProvider $provider, SessionContract $session)
     {
-        // Do not initialize the parent construct unless a construct parameter is given
-        // makes use of the Singleton Trait
-        if($session || $provider || $session) {
-            parent::__construct($name, $provider, $session);
-        }
-    }
-
-    /**
-     * Initializes the singleton
-     */
-    protected function init()
-    {
-        $this->ipAddress = Request::ip();        
+        $this->ipAddress = Request::ip(); 
+        $this->name = $name;
+        $this->session = $session;
+        $this->provider = $provider;
     }
 
     //
