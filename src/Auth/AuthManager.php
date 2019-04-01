@@ -179,7 +179,7 @@ class AuthManager implements StatefulGuard
 
         $user = $query->find($id);
 
-        return $user ?: null;
+        return $this->validateUserModel($user) ? $user : null;
     }
 
     /**
@@ -194,7 +194,7 @@ class AuthManager implements StatefulGuard
 
         $user = $query->where($model->getLoginName(), $login)->first();
 
-        return $user ?: null;
+        return $this->validateUserModel($user) ? $user : null;
     }
 
     /**
@@ -226,7 +226,8 @@ class AuthManager implements StatefulGuard
             }
         }
 
-        if (!$user = $query->first()) {
+        $user = $query->first();
+        if (!$this->validateUserModel($user)) {
             throw new AuthException('A user was not found with the given credentials.');
         }
 
@@ -254,6 +255,17 @@ class AuthManager implements StatefulGuard
     //
     // Throttle
     //
+
+    /**
+     * Perform additional checks on the user model.
+     *
+     * @param $user
+     * @return boolean
+     */
+    protected function validateUserModel($user)
+    {
+        return $user instanceof $this->userModel;
+    }
 
     /**
      * Creates an instance of the throttle model
