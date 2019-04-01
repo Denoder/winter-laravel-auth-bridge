@@ -1,28 +1,9 @@
 <?php namespace October\Bridge\Foundation;
 
-use October\Rain\Events\EventServiceProvider;
-use October\Rain\Router\RoutingServiceProvider;
-use October\Rain\Foundation\Providers\LogServiceProvider;
-use October\Rain\Foundation\Providers\MakerServiceProvider;
-use October\Rain\Foundation\Providers\ExecutionContextProvider;
 use October\Rain\Foundation\Application as ApplicationBase;
 
 class Application extends ApplicationBase 
 {
-    /**
-     * The base path for plugins.
-     *
-     * @var string
-     */
-    protected $pluginsPath;
-
-    /**
-     * The base path for themes.
-     *
-     * @var string
-     */
-    protected $themesPath;
-
     /**
      * Register all of the base service providers.
      *
@@ -30,15 +11,7 @@ class Application extends ApplicationBase
      */
     protected function registerBaseServiceProviders()
     {
-        $this->register(new EventServiceProvider($this));
-
-        $this->register(new LogServiceProvider($this));
-
-        $this->register(new RoutingServiceProvider($this));
-
-        $this->register(new MakerServiceProvider($this));
-        
-        $this->register(new ExecutionContextProvider($this));
+        parent::registerBaseServiceProviders();
     }
 
     /**
@@ -49,10 +22,6 @@ class Application extends ApplicationBase
     protected function bindPathsInContainer()
     {
         parent::bindPathsInContainer();
-
-        $this->instance('path.plugins', $this->pluginsPath());
-        $this->instance('path.themes', $this->themesPath());
-        $this->instance('path.temp', $this->tempPath());
     }
     
     //
