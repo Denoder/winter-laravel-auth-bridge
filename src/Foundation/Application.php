@@ -4,6 +4,7 @@ use October\Rain\Events\EventServiceProvider;
 use October\Rain\Router\RoutingServiceProvider;
 use October\Rain\Foundation\Providers\LogServiceProvider;
 use October\Rain\Foundation\Providers\MakerServiceProvider;
+use October\Rain\Foundation\Providers\ExecutionContextProvider;
 use October\Rain\Foundation\Application as ApplicationBase;
 
 class Application extends ApplicationBase 
@@ -23,13 +24,6 @@ class Application extends ApplicationBase
     protected $themesPath;
 
     /**
-     * The request execution context (front-end, back-end)
-     *
-     * @var string
-     */
-    protected $executionContext;
-
-    /**
      * Register all of the base service providers.
      *
      * @return void
@@ -43,6 +37,8 @@ class Application extends ApplicationBase
         $this->register(new RoutingServiceProvider($this));
 
         $this->register(new MakerServiceProvider($this));
+        
+        $this->register(new ExecutionContextProvider($this));
     }
 
     /**
