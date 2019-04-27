@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'october',
         'passwords' => 'users',
     ],
 
@@ -37,14 +37,17 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session.extended',
+            'driver' => 'session',
             'provider' => 'users',
         ],
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
         ],
+         'october' => [
+            'driver' => 'session.extended',
+            'provider' => 'users',
+        ],       
     ],
 
     /*
