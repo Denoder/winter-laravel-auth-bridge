@@ -12,15 +12,6 @@ use Illuminate\Contracts\Auth\Authenticatable;
 class AuthManager implements StatefulGuard
 {
     /**
-     * The name of the Guard.
-     *
-     * Corresponds to guard name in authentication configuration.
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
      * The session used by the guard.
      *
      * @var \Illuminate\Contracts\Session\Session
@@ -82,10 +73,9 @@ class AuthManager implements StatefulGuard
      */
     protected $viaRemember = false;
     
-    public function __construct($name, UserProvider $provider, SessionContract $session)
+    public function __construct(UserProvider $provider, SessionContract $session)
     {
-        $this->ipAddress = Request::ip(); 
-        $this->name = $name;
+        $this->ipAddress = Request::ip();
         $this->session = $session;
         $this->provider = $provider;
     }
