@@ -435,7 +435,7 @@ class AuthManager implements StatefulGuard
             }
             elseif ($cookieArray = Cookie::get($this->sessionKey)) {
                 $this->viaRemember = true;
-                $userArray = $cookieArray;
+                $userArray = @json_decode($cookieArray, true);
             }
             else {
                 return false;
@@ -591,7 +591,7 @@ class AuthManager implements StatefulGuard
             Session::put($this->sessionKey, $toPersist);
 
             if ($remember) {
-                Cookie::queue(Cookie::forever($this->sessionKey, $toPersist));
+                Cookie::queue(Cookie::forever($this->sessionKey, @json_encode($toPersist)));
             }
         }
 
