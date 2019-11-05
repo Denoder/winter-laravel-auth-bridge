@@ -1,23 +1,17 @@
-<?php namespace October\Bridge\Auth;
+<?php 
+
+namespace October\Bridge\Auth;
 
 use Cookie;
 use Session;
 use Request;
 use October\Rain\Auth\AuthException;
-use Illuminate\Contracts\Session\Session as SessionContract;
-use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 class AuthManager implements StatefulGuard
 {
-    /**
-     * The session used by the guard.
-     *
-     * @var \Illuminate\Contracts\Session\Session
-     */
-    protected $session;
-    
+
     /**
      * @var Models\User The currently logged in user
      */
@@ -72,12 +66,10 @@ class AuthManager implements StatefulGuard
      * @var bool Indicates if the user was authenticated via a recaller cookie.
      */
     protected $viaRemember = false;
-    
-    public function __construct(UserProvider $provider, SessionContract $session)
+
+    public function __construct()
     {
         $this->ipAddress = Request::ip();
-        $this->session = $session;
-        $this->provider = $provider;
     }
 
     //
