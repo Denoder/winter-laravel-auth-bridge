@@ -45,7 +45,7 @@ return [
             'provider' => 'users',
         ],
          'october' => [
-            'driver' => 'session.extended',
+            'driver' => 'october',
             'provider' => 'users',
         ],       
     ],
