@@ -44,6 +44,16 @@ Illuminate\Auth\AuthServiceProvider::class,
 October\Bridge\Auth\AuthServiceProvider::class,
 ```
 
+now if you want to use said auth you'd do so in the user plugin:
+
+```
+Auth::extend('october', function($app, $name, array $config)
+{
+    $guard = new \Rainlab\User\Classes\AuthManager;
+    return $guard;
+});
+```
+
 (you can also add the `Gate` alias if you want)
 
 After that the package should essentially act as a layer over Laravel's auth while retaining october's functions.
