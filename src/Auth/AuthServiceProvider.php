@@ -39,7 +39,7 @@ class AuthServiceProvider extends ServiceProvider
         {
             $provider = $this->app['auth']->createUserProvider($config['provider']);
 
-            $guard = new AuthManager($provider, $app['session.store']);
+            $guard = new AuthManager;
 
             // When using the remember me functionality of the authentication services we
             // will need to be set the encryption instance of the guard, which allows
