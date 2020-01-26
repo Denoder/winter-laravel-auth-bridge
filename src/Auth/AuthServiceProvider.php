@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
      */    
     protected function extendAuthSession()
     {
-        $this->app['auth']->extend('session.extended', function($app, $name, array $config)
+        $this->app['auth']->extend('october', function($app, $name, array $config)
         {
             $provider = $this->app['auth']->createUserProvider($config['provider']);
 
