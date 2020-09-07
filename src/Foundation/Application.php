@@ -15,6 +15,16 @@ class Application extends ApplicationBase
     }
 
     /**
+     * Register the basic bindings into the container.
+     *
+     * @return void
+     */
+    protected function registerBaseBindings()
+    {
+        parent::registerBaseBindings();
+    }
+
+    /**
      * Bind all of the application paths in the container.
      *
      * @return void
