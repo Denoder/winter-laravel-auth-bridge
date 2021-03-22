@@ -25,7 +25,7 @@ class AuthManager implements StatefulGuard
     /**
      * @var string Key to store the auth session data in
      */
-    protected $sessionKey = 'october_auth';
+    protected $sessionKey = 'winter_auth';
 
     /**
      * @var string User Model Class
