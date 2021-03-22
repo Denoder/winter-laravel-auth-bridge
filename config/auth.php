@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'october',
+        'guard' => 'winter',
         'passwords' => 'users',
     ],
 
@@ -44,8 +44,8 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-         'october' => [
-            'driver' => 'october',
+         'winter' => [
+            'driver' => 'winter',
             'provider' => 'users',
         ],       
     ],
@@ -70,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \October\Rain\Auth\Models\User::class,
+            'model' => \Winter\Storm\Auth\Models\User::class,
         ],
 
         // 'users' => [
