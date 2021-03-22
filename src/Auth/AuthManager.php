@@ -1,11 +1,11 @@
 <?php 
 
-namespace October\Bridge\Auth;
+namespace Winter\Bridge\Auth;
 
 use Cookie;
 use Session;
 use Request;
-use October\Rain\Auth\AuthException;
+use Winter\Storm\Auth\AuthException;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
@@ -30,17 +30,17 @@ class AuthManager implements StatefulGuard
     /**
      * @var string User Model Class
      */
-    protected $userModel = \October\Rain\Auth\Models\User::class;
+    protected $userModel = \Winter\Storm\Auth\Models\User::class;
 
     /**
      * @var string User Group Model Class
      */
-    protected $groupModel = \October\Rain\Auth\Models\Group::class;
+    protected $groupModel = \Winter\Storm\Auth\Models\Group::class;
 
     /**
      * @var string Throttle Model Class
      */
-    protected $throttleModel = \October\Rain\Auth\Models\Throttle::class;
+    protected $throttleModel = \Winter\Storm\Auth\Models\Throttle::class;
 
     /**
      * @var bool Flag to enable login throttling
@@ -99,7 +99,7 @@ class AuthManager implements StatefulGuard
 
     /**
      * Extend the query used for finding the user.
-     * @param \October\Rain\Database\Builder $query
+     * @param \Winter\Storm\Database\Builder $query
      * @return void
      */
     public function extendUserQuery($query)
