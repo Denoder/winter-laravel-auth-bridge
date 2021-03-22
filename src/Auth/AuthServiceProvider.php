@@ -1,9 +1,9 @@
 <?php
 
-namespace October\Bridge\Auth;
+namespace Winter\Bridge\Auth;
 
-use October\Bridge\Auth\AuthManager;
-use October\Rain\Support\ServiceProvider;
+use Winter\Bridge\Auth\AuthManager;
+use Winter\Storm\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
      */    
     protected function extendAuthSession()
     {
-        $this->app['auth']->extend('october', function($app, $name, array $config) {
+        $this->app['auth']->extend('winter', function($app, $name, array $config) {
             $guard = new AuthManager;
             return $guard;
         });         
@@ -51,7 +51,7 @@ class AuthServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 dirname(__DIR__).'/../config/auth.php' => config_path('auth.php'),
-            ], 'october-bridge-config');
+            ], 'winter-bridge-config');
         }
     }
 }
