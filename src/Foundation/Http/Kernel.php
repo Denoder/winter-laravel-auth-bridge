@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
         \Winter\Storm\Foundation\Bootstrap\LoadTranslation::class,
         \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
         \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \Winter\Storm\Foundation\Bootstrap\RegisterOctober::class,
+        \Winter\Storm\Foundation\Bootstrap\RegisterWinter::class,
         \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
         \Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
