@@ -1,6 +1,6 @@
-<?php namespace October\Bridge\Foundation;
+<?php namespace Winter\Bridge\Foundation;
 
-use October\Rain\Foundation\Application as ApplicationBase;
+use Winter\Storm\Foundation\Application as ApplicationBase;
 
 class Application extends ApplicationBase 
 {
@@ -60,7 +60,7 @@ class Application extends ApplicationBase
             'db.connection'        => [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
             'events'               => [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
             'files'                => [\Illuminate\Filesystem\Filesystem::class],
-            'filesystem'           => [\October\Rain\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
+            'filesystem'           => [\Winter\Storm\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
             'filesystem.disk'      => [\Illuminate\Contracts\Filesystem\Filesystem::class],
             'filesystem.cloud'     => [\Illuminate\Contracts\Filesystem\Cloud::class],
             'hash'                 => [\Illuminate\Hashing\HashManager::class],
@@ -80,8 +80,8 @@ class Application extends ApplicationBase
             'router'               => [\Illuminate\Routing\Router::class, \Illuminate\Contracts\Routing\Registrar::class, \Illuminate\Contracts\Routing\BindingRegistrar::class],
             'session'              => [\Illuminate\Session\SessionManager::class],
             'session.store'        => [\Illuminate\Session\Store::class, \Illuminate\Contracts\Session\Session::class],
-            'url'                  => [\October\Rain\Router\UrlGenerator::class, \Illuminate\Contracts\Routing\UrlGenerator::class],
-            'validator'            => [\October\Rain\Validation\Factory::class, \Illuminate\Contracts\Validation\Factory::class],
+            'url'                  => [\Winter\Storm\Router\UrlGenerator::class, \Illuminate\Contracts\Routing\UrlGenerator::class],
+            'validator'            => [\Winter\Storm\Validation\Factory::class, \Illuminate\Contracts\Validation\Factory::class],
             'view'                 => [\Illuminate\View\Factory::class, \Illuminate\Contracts\View\Factory::class],
         ];
 
