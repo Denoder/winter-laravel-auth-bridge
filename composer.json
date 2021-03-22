@@ -1,7 +1,7 @@
 {
-    "name": "october-bridge/bridge",
-    "description": "October Core Extending Laravel Auth",
-    "keywords": ["october", "cms", "laravel", "auth"],
+    "name": "winter-bridge/bridge",
+    "description": "Winter Core Extending Laravel Auth",
+    "keywords": ["winter", "cms", "laravel", "auth"],
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "October\\Bridge\\": "src/"
+            "Winter\\Bridge\\": "src/"
         }
     },
      "extra": {
