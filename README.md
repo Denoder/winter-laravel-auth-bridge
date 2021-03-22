@@ -1,5 +1,5 @@
 # winter-laravel-auth
-This will allow you to use Laravel's core auth with OctoberCMS
+This will allow you to use Laravel's core auth with WinterCMS
 
 ## How to install
 `composer require winter-bridge/bridge`
