@@ -1,4 +1,4 @@
-<?php namespace October\Bridge\Foundation\Http;
+<?php namespace Winter\Bridge\Foundation\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -10,13 +10,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $bootstrappers = [
-        \October\Rain\Foundation\Bootstrap\RegisterClassLoader::class,
-        \October\Rain\Foundation\Bootstrap\LoadEnvironmentVariables::class,
-        \October\Rain\Foundation\Bootstrap\LoadConfiguration::class,
-        \October\Rain\Foundation\Bootstrap\LoadTranslation::class,
+        \Winter\Storm\Foundation\Bootstrap\RegisterClassLoader::class,
+        \Winter\Storm\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+        \Winter\Storm\Foundation\Bootstrap\LoadConfiguration::class,
+        \Winter\Storm\Foundation\Bootstrap\LoadTranslation::class,
         \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
         \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \October\Rain\Foundation\Bootstrap\RegisterOctober::class,
+        \Winter\Storm\Foundation\Bootstrap\RegisterOctober::class,
         \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
         \Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
@@ -55,7 +55,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \October\Rain\Cookie\Middleware\EncryptCookies::class,
+            \Winter\Storm\Cookie\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
