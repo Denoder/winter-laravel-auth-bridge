@@ -1,6 +1,10 @@
 # winter-laravel-auth
 This will allow you to use Laravel's core auth with WinterCMS
 
+## New Package
+
+Please Consider using this instead to avoid having to manually change your files: https://github.com/Teranode/wn-application-core-plugin
+
 ## How to install
 `composer require winter-bridge/bridge`
 
